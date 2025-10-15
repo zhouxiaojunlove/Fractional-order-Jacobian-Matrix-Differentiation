@@ -149,18 +149,14 @@ class Model(nn.Module):
 
         self.linear_seasonal = nn.Sequential(
             FLinear(self.seq_len, self.hidden_size,self.alpha),
-            # nn.Linear(self.seq_len, self.hidden_size),
             nn.LeakyReLU(),
             FLinear(self.hidden_size, self.pred_len,self.alpha)
-            # nn.Linear(self.hidden_size, self.pred_len)
         )
 
         self.linear_trend = nn.Sequential(
             FLinear(self.seq_len, self.hidden_size,self.alpha),
-            # nn.Linear(self.seq_len, self.hidden_size),
             nn.LeakyReLU(),
             FLinear(self.hidden_size, self.pred_len,self.alpha)
-            # nn.Linear(self.hidden_size, self.pred_len)
         )
 
         # SCI block
